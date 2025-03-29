@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
-function App() {
+import {
+  ReactFlow,
+  ReactFlowProvider,
+  addEdge,
+  useNodesState,
+  useEdgesState,
+  Controls,
+  useReactFlow,
+  Background,
+} from '@xyflow/react';
+ 
+import '@xyflow/react/dist/style.css';
+  import { DnDProvider, useDnD } from './DnDContext';
+ import DragDropComponent from './DragDropComponent';
+ 
+function App (){
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+    (
+      <ReactFlowProvider>
+        <DnDProvider>
+          <DragDropComponent />
+        </DnDProvider>
+      </ReactFlowProvider>
+    )
+  )
+}
+export default App
